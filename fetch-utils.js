@@ -17,8 +17,9 @@ export async function deleteAllTodos() {
 
 export async function getTodos() {
     // get all todos for this user from supabase
-
-    return checkError(response);
+    const resp = await client.from('todos').select();
+    console.log(resp,'hello');
+    return checkError(resp);
 }
 
 export async function completeTodo(id) {
